@@ -1,6 +1,6 @@
 # node-adodb
 
-> 一个用 Node.js 实现的 windows 上的 ADODB 协议。
+> A node.js javascript client implementing the ADODB protocol on windows.
 >
 > [![NPM Version][npm-image]][npm-url]
 > [![Download Status][download-image]][npm-url]
@@ -9,11 +9,11 @@
 > ![Node Version][node-image]
 > [![Dependencies][david-image]][david-url]
 
-### 安装
+### Install
 
 [![NPM](https://nodei.co/npm/node-adodb.png)](https://nodei.co/npm/node-adodb/)
 
-### 使用示例:
+### Introduction:
 
 ##### ES6
 
@@ -23,7 +23,7 @@
 const ADODB = require('node-adodb');
 const connection = ADODB.open('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;');
 
-// 不带返回的执行
+// Execute
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)')
   .then(data => {
@@ -33,7 +33,7 @@ connection
     console.error(error);
   });
 
-// 带返回标识的执行
+// Execute with scalar
 connection
   .execute('INSERT INTO Users(UserName, UserSex, UserAge) VALUES ("Newton", "Male", 25)', 'SELECT @@Identity AS id')
   .then(data => {
@@ -43,7 +43,7 @@ connection
     console.error(error);
   });
 
-// 带返回的查询
+// Query
 connection
   .query('SELECT * FROM Users')
   .then(data => {
@@ -53,7 +53,7 @@ connection
     console.error(error);
   });
 
-// 带字段描述的查询
+// Schema
 connection
   .schema(20)
   .then(schema => {
@@ -65,6 +65,7 @@ connection
 ```
 
 ##### ES7 async/await
+
 ```js
 'use strict';
 
@@ -84,48 +85,47 @@ async function query() {
 query();
 ```
 
-### 接口文档:
+### API:
 
 `ADODB.open(connection[, x64]): ADODB`
 
-> 初始化数据库链接参数。
+> Initialization database link parameters.
 
 `ADODB.query(sql): Promise`
 
-> 执行有返回值的 SQL 语句。
+> Execute a SQL statement that returns a value.
 
 `ADODB.execute(sql[, scalar]): Promise`
 
-> 执行无返回值或者带更新统计的的 SQL 语句。
+> Execute a SQL statement with no return value or with updated statistics.
 
 `ADODB.schema(type[, criteria][, id]): Promise`
 
-> 查询数据库架构信息。参考： [OpenSchema](https://docs.microsoft.com/zh-cn/sql/ado/reference/ado-api/openschema-method)
+> Query database schema information. see: [OpenSchema](https://docs.microsoft.com/en-us/sql/ado/reference/ado-api/openschema-method)
 
-### 调试：
+### Debug:
 
-> 设置环境变量 `DEBUG=ADODB`。参考： [debug](https://github.com/visionmedia/debug)
+> Set env `DEBUG=ADODB`, see: [debug](https://github.com/visionmedia/debug)
 
-### 扩展:
+### Extension:
 
-> 该类库理论支持 Windows 平台下所有支持 ADODB 连接的数据库，只需要更改数据库连接字符串即可实现操作！
+> This library theory supports all databases on the Windows platform that support ADODB connections, and only need to change the database connection string to achieve the operation!
 
-> 数据库连接字符串： 
+> Common access connection strings: 
 >  - Access 2000-2003 (\*.mdb): `Provider=Microsoft.Jet.OLEDB.4.0;Data Source=node-adodb.mdb;`
->  - Access > 2007 (\*.accdb): `Provider=Microsoft.ACE.OLEDB.12.0;Data Source=adodb.accdb;Persist Security Info=False;` 或者  `Provider=Microsoft.ACE.OLEDB.15.0;Data Source=adodb.accdb;Persist Security Info=False;`
+>  - Access > 2007 (\*.accdb): `Provider=Microsoft.ACE.OLEDB.12.0;Data Source=adodb.accdb;Persist Security Info=False;` or  `Provider=Microsoft.ACE.OLEDB.15.0;Data Source=adodb.accdb;Persist Security Info=False;`
 
+### Notes:
 
-### 注意:
-
-> 该类库需要系统支持 `Microsoft.Jet.OLEDB.4.0` 或者 `Microsoft.ACE.OLEDB.12.0`，对于 `Windows XP SP2` 以上系统默认支持 `Microsoft.Jet.OLEDB.4.0`，其它需要自己安装支持！
+> The library need system support `Microsoft.Jet.OLEDB.4.0` or `Microsoft.ACE.OLEDB.12.0`, `Windows XP SP2` above support `Microsoft.Jet.OLEDB.4.0` by default, Others need to install support!
 >
-> 推荐使用 `Microsoft.ACE.OLEDB.12.0`，获取地址： [Microsoft.ACE.OLEDB.12.0](https://www.microsoft.com/zh-CN/download/details.aspx?id=13255)
+> Recommended use `Microsoft.ACE.OLEDB.12.0`, download: [Microsoft.ACE.OLEDB.12.0](https://www.microsoft.com/en-us/download/details.aspx?id=13255)
 
 ### Electron
 
-> 如果你想在 `ASAR` 包中运行这个模块，你需要做一些修改。
+> If you want to use this module in an electron app running from an asar package you'll need to make some changes.
 
-> 1. 从 `asar` 包中排除 `adodb.js`（使用 `electron-builder`， 可以配置 `extraResources` 将制定文件排除在外）
+> 1. Move `adodb.js` outside the asar package (in this example I use electron-builder, the `extraResources` option can move the file outside the asar package)
 ```json
 "extraResources": [
   {
@@ -135,7 +135,7 @@ query();
 ]
 ```
 
-> 2. 告诉 `asar` 从哪里运行 `adodb.js` （可以将配置写在 `Electron` 的 `main.js` 文件中）
+> 2. Tell the module where to find `adodb.js` while running from an asar package (I added this in electron's `main.js` file)
 ```javascript
 // Are we running from inside an asar package ?
 if(process.mainModule.filename.indexOf('app.asar') !== -1) {
