@@ -1,53 +1,31 @@
 {
-  "name": "node-adodb",
-  "version": "5.0.1",
-  "main": "index.js",
-  "license": "MIT",
-  "keywords": [
-    "sql",
-    "adodb",
-    "access",
-    "database",
-    "node-adodb",
-    "microsoft adodb"
-  ],
-  "homepage": "https://github.com/nuintun/node-adodb#readme",
-  "description": "A Node.js JavaScript Client implementing the ADODB protocol.",
-  "author": {
-    "name": "nuintun",
-    "email": "nuintun@qq.com"
-  },
-  "bugs": {
-    "url": "https://github.com/nuintun/node-adodb/issues"
-  },
-  "os": [
-    "win32"
-  ],
+  "name": "node-js-getting-started",
+  "version": "0.3.0",
+  "description": "A sample Node.js app using Express 4",
   "engines": {
-    "node": ">=6.0.0"
+    "node": "10.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nuintun/node-adodb.git"
+    "url": "https://github.com/heroku/node-js-getting-started"
   },
-  "dependencies": {
-    "arch": "^2.1.1",
-    "async": "^2.6.1",
-    "await": "^0.2.6",
-    "debug": "^4.1.1",
-    "fast-csv": "^2.4.1"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "rollup": "^1.0.2",
-    "terser": "^3.14.1",
-    "holding": "^3.1.0",
-    "fs-extra": "^7.0.1"
-  },
-  "scripts": {
-    "prepublishOnly": "node rollup.js",
-    "test": "mocha --timeout 6000 --check-leaks --reporter spec --bail --exit",
-    "test-ci": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --timeout 6000 --check-leaks --reporter spec --exit",
-    "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha -- --timeout 6000 --check-leaks --reporter dot --exit"
-  }
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
