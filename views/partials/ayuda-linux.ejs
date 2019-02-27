@@ -1,0 +1,287 @@
+<center>
+  <strong><u>MANEJO DE ARCHIVOS Y DIRECTORIOS A TRAVES DE COMANDOS</u></strong>
+</center>
+<p>Mas allá de interfaces gráficas como KFM, Linux dispone de un numeroso conjunto de utilidades para manipular archivos (individualmente o en grupos) tipeando comandos en una terminal. A través de esta modalidad de trabajo es posible alcanzar un alto nivel de flexibilidad y versatilidad para realizar operaciones de cualquier grado de complejidad.</p>
+<p>Los comandos utilizados mas frecuentemente se describen brevemente a continuación. Para un mayor nivel de detalle, se sugiere consultar el manual en línea de Linux (ver mas adelante el comando <strong>man</strong>) y especialmente la documentación del interprete de comandos utilizado (usualmente, el <strong><em>bash</em></strong>).</p>
+<p><br />
+</p>
+<p><u><strong>COMANDOS LINUX PARA LA GESTION DE ARCHIVOS Y DIRECTORIOS</strong></u></p>
+<p><strong>cp</strong></p>
+<p><em>Propósito</em></p>
+<p>El comando cp es un abreviatura de copy (copiar); permite copiar archivos y directorios. Para copiar un archivo se usa el siguiente mandato:</p>
+<p><em>Sintaxis</em></p>
+<p>cp [Opciones] archivo_fuente directorio_destino</p>
+<p>cp [Opciones] archivo_fuente archivo_destino</p>
+<p><em>Opciones</em></p>
+<p>-a conserva todos los atributos de los archivos.</p>
+<p>-b hace un backup antes de proceder a la copia.</p>
+<p>-d copia un vínculo pero no el fichero al que se hace referencia.</p>
+<p>-i pide confirmación antes de sobreescribir archivos.</p>
+<p>-p conserva los sellos de propiedad, permisos y fecha.</p>
+<p>-R copia los archivos y subdirectorios.</p>
+<p>-s crea enlaces en vez de copiar los ficheros.</p>
+<p>-u únicamente procede a la copia si la fecha del archivo origen es posterior a la del destino.</p>
+<p>-v muestra mensajes relacionados con el proceso de copia de los archivos.</p>
+<p><em>Descripción</em></p>
+<p>El comando cp copia un archivo a otro. También puede copiar varios ficheros en un directorio determinado.</p>
+<p><em>Ej.</em></p>
+<p>cp manual_linux_v1 ../../../doc/linux</p>
+<p>En este ejemplo copia el archivo manual_linux en un directorio dos niveles más arriba del actual, en el directorio doc/linux</p>
+<p> </p>
+<p><strong>mv</strong></p>
+<p><em>Propósito</em></p>
+<p>Modifica el nombre de los archivos y directorios moviéndolos de una ubicación a otra.</p>
+<p><em>Sintaxis</em></p>
+<p>mv [Opciones] fuente destino</p>
+<p><em>Opciones</em></p>
+<p>-d hace una copia de seguridad de los archivos que se van a mover o renombrar.</p>
+<p>-f elimina los archivos sin solicitar confirmación.</p>
+<p>-v pregunta antes de sobreescribir los archivos existentes.</p>
+<p><em>Descripción</em></p>
+<p>El comando mv se puede utilizar para modificar el nombre o mover un archivo de un directorio a otro. Trabaja tanto con archivos como con los directorios.</p>
+<p><em>Ej.</em></p>
+<p>mv manual_linux_v1 manuales/linux</p>
+<p>mv manual_linux_v1 manual_linux_v1_doc</p>
+<p>mv manual_linux_cap1 manual_linux_cap2 manual_linux_cap2 /manual/linux</p>
+<p> </p>
+<p><strong>rm</strong></p>
+<p><em>Propósito</em></p>
+<p>Elimina uno más archivos (puede eliminar un directorio completo con la opción –r).</p>
+<p><em>Sintaxis</em></p>
+<p>rm [Opciones] archivos</p>
+<p><em>Opciones</em></p>
+<p>-f elimina todos los archivos sin preguntar.</p>
+<p>-i pregunta antes de eliminar un archivo.</p>
+<p>-r elimina todos los archivos que se encuentran en un subdirectorio y por último borra el propio subdirectorio.</p>
+<p>-v muestra el nombre de cada archivo antes de eliminarlo.</p>
+<p><em>Descripción</em></p>
+<p>El comando rm se utiliza para borrar los archivos que se le especifiquen. Para eliminar un fichero ha de tener permiso de escritura en el directorio en el que se encuentra.</p>
+<p>Ej.</p>
+<p>rm manual_linux_v1</p>
+<p>rm –r documentos/</p>
+<p><strong></strong> </p>
+<p><strong>mkdir</strong></p>
+<p><em>Propósito</em></p>
+<p>crear directorios.</p>
+<p><em>Sintaxis</em></p>
+<p>mkdir [Opciones] nombre_directorio</p>
+<p><em>Opciones</em></p>
+<p>-m modo, asigna la configuración de permisos especificada al nuevo directorio.</p>
+<p>-p crea directorios emparentados (en caso de que no existan).</p>
+<p><em>Descripción</em></p>
+<p>El comando mkdir se utiliza para crear un directorio especifico.</p>
+<p><em>Ej.</em></p>
+<p>mkdir manuales</p>
+<p> </p>
+<p><strong>rmdir</strong></p>
+<p><em>Propósito</em></p>
+<p>Elimina un directorio (siempre y cuando esté vacío).</p>
+<p><em>Sintaxis</em></p>
+<p>rmdir [Opciones] directorio</p>
+<p><em>Opciones</em></p>
+<p>-p elimina cualquier directorio emparentado que este vacío.</p>
+<p><em>Descripción</em></p>
+<p>El comando rmdir elimina los directorios vacíos. Si tiene algún contenido, tendrá que utilizar el comando rm –r para eliminar el directorio y sus contenidos.</p>
+<p><em>Ej.</em></p>
+<p>rmdir manual</p>
+<p> </p>
+<p><strong>ls</strong></p>
+<p><em>Propósito</em></p>
+<p>Listar el contenido de un directorio.</p>
+<p><em>Sintaxis</em></p>
+<p>ls [Opciones] [nombre_directorio o archivo]</p>
+<p><em>Opciones</em></p>
+<p>-a muestra todos los archivos. Incluyendo a los ocultos.</p>
+<p>-b muestra los caracteres no imprimibles de los nombres de los ficheros utilizando un código octal.</p>
+<p>-c ordena los archivos de acuerdo con la fecha de creación.</p>
+<p>-d muestra una lista en la que aparecen los directorios como si fuesen archivos (en vez de mostrar su contenido).</p>
+<p>-f muestra el contenido del directorio sin ordenar.</p>
+<p>-i muestra información de i-node.</p>
+<p>-l muestra la lista de archivos con formato largo y con información detallada (tamaño, usuario, grupo, permisos etc.).</p>
+<p>-p añade un carácter al nombre del archivo para indicar a que tipo pertenece.</p>
+<p>-r coloca la lista en orden alfabético inverso.</p>
+<p>-s muestra el tamaño (kb) de cada archivo próximo al solicitado.</p>
+<p>-t ordena la lista de acuerdo con la fecha de cada fichero.</p>
+<p>-R muestra una lista con el contenido del directorio actual y de todos sus subdirectorios.</p>
+<p><em>Descripción</em></p>
+<p>El comando ls muestra el contenido de un directorio determinado. Si se omite el nombre del directorio, mostrará el contenido del directorio en el que se encuentre. Por defecto, ls no muestra el nombre de los archivos cuyo nombre comience con un punto; para verlos tendrá que utilizar la opción –a.</p>
+<p><em>Ej.</em></p>
+<p>ls –a</p>
+<p>ls –l</p>
+<p>ls –la</p>
+<p> </p>
+<p><strong>cd</strong></p>
+<p><em>Propósito</em></p>
+<p>Cambiar de directorio.</p>
+<p><em>Sintaxis</em></p>
+<p>cd [directorio]</p>
+<p><em>Opciones</em></p>
+<p>Ninguna</p>
+<p><em>Descripción</em></p>
+<p>Si escribe cd sin ningún nombre de directorio como argumento, se cambiará al directorio home del usuario. En cualquier otro caso se moverá al directorio indicado, si existe.</p>
+<p><strong></strong> </p>
+<p><strong>pwd</strong></p>
+<p>Propósito</p>
+<p>Mostrar la ruta del directorio de trabajo actual.</p>
+<p><em>Sintaxis</em>.</p>
+<p>pwd</p>
+<p><em>Opciones</em></p>
+<p>Ninguna</p>
+<p><em>Descripción</em></p>
+<p>El comando pwd imprime el directorio de trabajo (aquel en el que actualmente se está trabajando).</p>
+<p><strong></strong> </p>
+<p><strong>chmod</strong></p>
+<p><em>Propósito</em></p>
+<p>Modifica los permisos de uno o más archivos o directorios.</p>
+<p><em>Sintaxis</em></p>
+<p>chmod [Opciones] [permiso_descripción] archivo</p>
+<p><em>Opciones</em></p>
+<p>-c muestra los archivos a los que se les han modificado los permisos.</p>
+<p>-f hace que no aparezca en pantalla ningún mensaje de error.</p>
+<p>-v muestra los cambios efectuados en los permisos de archivos.</p>
+<p>-R cambia los permisos de los archivos de todos los subdirectorios.</p>
+<p><br />
+  <em>Permisos_descripción</em></p>
+<p>Quien Acción Permiso</p>
+<center>
+  <table width="80%" border="1" bordercolor="#000000" cellpadding="2" cellspacing="0">
+    <colgroup>
+      <col width="168" />
+      <col width="157" />
+      <col width="159" />
+    </colgroup>
+    <tbody>
+      <tr valign="top">
+        <th width="168">Quien</th>
+        <th width="157">Acción</th>
+        <th width="159">Permiso</th>
+      </tr>
+      <tr valign="top">
+        <td width="168"><p>u: usuario</p>
+          <p>g: grupo</p>
+          <p>o: otros</p>
+          <p>a: todos</p></td>
+        <td width="157"><p>+: agregar</p>
+          <p>-: quitar</p>
+          <p>=: asignar</p></td>
+        <td width="159"><p>r: lectura</p>
+          <p>w: escritura</p>
+          <p>x: ejecutar</p>
+          <p>s: ajustar con el ID del usuario.</p></td>
+      </tr>
+    </tbody>
+  </table>
+</center>
+<blockquote>
+  <p><em>Ej.</em></p>
+  <p>chmod u+xr manual_linux</p>
+  <p>El usuario tendrá los permisos de lectura y ejecución sobre el archivo manual_linux</p>
+  <p><em>Descripción</em></p>
+  <p>Para utilizar eficazmente el comando chmod, debe especificarse la configuración de los permisos de acuerdo a la tabla de permisos_descripción.</p>
+  <p>Por ejemplo para que todos tengan permiso de lectura en un determinado archivo se tipea, <em>chmod a+r nombre_archivo</em>. También se podría haber tipeado chmod u=r,g=r,o=r nombre_archivo.</p>
+  <p>Otra forma de modificar los permisos es a través de un número octal de 3 cifras una cifra por cada grupo de permisos, este número surge de realizar la suma de los permisos que se les quiere asignar de acuerdo a los siguientes valores:</p>
+  <p>Permiso de lectura r = 4</p>
+  <p>Permiso de escritura w = 2</p>
+  <p>Permiso de ejecución x = 1</p>
+  <p>Y si no se le concede cualquier permiso el valor asignado es 0.</p>
+  <p>El formato para utilizar chmod especificando los permisos por medio de números es el siguiente.</p>
+  <p>chmod permiso_usuario permiso_grupo permiso_otros</p>
+  <p>Ejemplo, supongamos que creamos el archivo permiso.txt y queremos que el usuario tenga todos los permisos, el grupo los permisos de lectura y ejecución y finalmente que el resto de los usuarios tenga sólo el permiso de ejecución.</p>
+  <p>Para el usuario: lectura r = 4, escritura w = 2, ejecución x =1 ; sumados = 7</p>
+  <p>Para el grupo: lectura r= 4, escritura w = 0, ejecución x = 1; sumados = 5</p>
+  <p>Para el resto de los usuarios: lectura r = 0; escritura w = 0, ejecución x = 1; sumados = 1</p>
+  <p>Entonces el comando seria: chmod 751 permisos.txt</p>
+  <p>En la lista detallada de los archivos de un directorio (usando el comando ls), los permisos de lectura escritura y ejecución del usuario, grupo y otros se mostrarán a través de la secuencia rwxrwxrwx, cuando algún permiso no está activado aparece un guión en su reemplazo.</p>
+  <p> </p>
+  <p><strong>cat</strong></p>
+  <p><em>Propósito</em></p>
+  <p>Muestra el contenido de un archivo utilizando la salida estándar (pantalla).</p>
+  <p><em>Sintaxis</em></p>
+  <p>cat [-benstvA] archivos</p>
+  <p><em>Opciones</em></p>
+  <p>-b números de líneas que no estén en blanco.</p>
+  <p>-e muestra el final de una línea (como $) y todos los caracteres no imprimibles.</p>
+  <p>-n numera todas las líneas de salida, comenzando por el 1.</p>
+  <p>-s sustituye varias líneas en blanco por una sola.</p>
+  <p>-t muestra las tabulaciones como ^l.</p>
+  <p>-v muestra los caracteres no imprimibles.</p>
+  <p>-A muestra todos los caracteres ( incluidos los no imprimibles).</p>
+  <p><em>Descripción</em></p>
+  <p>Normalmente, cat se utiliza para mostrar el contenido de un archivo o para <em>concatenar</em> varios dentro de un mismo fichero. Por ejemplo,</p>
+  <center>
+    cat archivo1, archivo2, archivo3 &gt; todo
+  </center>
+  <p>combina los tres archivos dentro de uno solo llamado todo.</p>
+  <p><strong></strong> </p>
+  <p><strong>find</strong></p>
+  <p><em>Propósito</em></p>
+  <p>Muestra una lista con los archivos que coinciden con un criterio especifico.</p>
+  <p><em>Sintaxis</em></p>
+  <p>find [ruta] [opciones]</p>
+  <p><em>Opciones</em></p>
+  <p>-depth procesa, en primer lugar, el directorio en el que se encuentra y luego sus subdirectorios.</p>
+  <p>-maxdepyh n restringe la búsqueda a n niveles de directorios.</p>
+  <p>-follow procesa los directorios que se incluyen dentro de los enlaces simbólicos.</p>
+  <p>-name modelo localiza los nombres de los archivos que coinciden con el modelo propuesto.</p>
+  <p>-ctime n localiza los nombres de los archivos creados n días atrás.</p>
+  <p>-user nombre_usuario nombre_usuario localiza los archivos pertenecientes al usuario especifico.</p>
+  <p>-group nombre_grupo localiza los archivos pertenecientes al grupo específico.</p>
+  <p>-path ruta localiza a los archivos cuya ruta coincide con el modelo propuesto.</p>
+  <p>-perm modo localiza los archivos con los permisos especificados.</p>
+  <p>-size +nK localiza los archivos cuyo tamaño ( en kilobytes) es mayor de especificado.</p>
+  <p>-print imprime el nombre de los archivos que encuentra.</p>
+  <p>-exec comando [opciones] {} \; ejecuta el comando especificado analizando el nombre del archivo localizado.</p>
+  <p><em>Descripción</em></p>
+  <p>El comando find es de gran utilidad cuando se quiere localizar todos los archivos que coinciden con algún criterio. Si escribe find sin ningún argumento, la salida mostrará un listado en el que aparecen los archivos de todos los subdirectorios de la carpeta en la que se encuentre.</p>
+  <p>Para ver todos los archivos cuyo nombre termine con <strong><em>.gz</em></strong>, tendrá que escribir:</p>
+  <p>find . -name &quot;*.gz &quot;.</p>
+  <p>Para buscar a partir del directorio /usr/doc todos los archivos con extensión <strong><em>bak</em></strong> y eliminarlos, utilizar el comando:</p>
+  <p>find /usr/doc -name &ldquo;*.bak&rdquo; -exec rm -f {} \;</p>
+  <p>en donde la secuencia {} se substituirá por el nombre completo de cada archivo encontrado.</p>
+  <p><strong></strong> </p>
+  <p><strong>grep</strong></p>
+  <p><em>Propósito</em></p>
+  <p>Busca en uno o más archivos las líneas que coincidan con una expresión regular (modelo de búsqueda).</p>
+  <p><em>Sintaxis</em></p>
+  <p>grep [opciones] modelo archivos</p>
+  <p><em>Opciones</em></p>
+  <p>-N muestra N líneas que contienen el modelo de búsqueda señalado.</p>
+  <p>-c muestra el número de líneas que contienen el modelo de búsqueda.</p>
+  <p>-f archivo lee las opciones del archivo especificado.</p>
+  <p>-i ignora letras</p>
+  <p>-l muestra los nombres de los archivos que contienen un modelo.</p>
+  <p>-q devuelve el número de línea siguiente a aquellas en las que se encuentra el modelo de búsqueda.</p>
+  <p>-v muestra las líneas que no contienen el modelo de búsqueda.</p>
+  <p><em>Descripción</em></p>
+  <p>El comando localiza el modelo de búsqueda en los archivos especificados. El modelo es una expresión regular en los archivos especificados que tienen sus propias reglas. Generalmente se utiliza para buscar una secuencia de caracteres en uno o más archivos de texto.</p>
+  <p><em>Ejemplo</em></p>
+  <p>grep Juan ListadoDeAlumnos.txt</p>
+  <p><u></u> </p>
+  <p><u></u> </p>
+  <p><u><strong>OTROS COMANDOS DE LINUX</strong></u></p>
+  <p><strong>man</strong>:<strong> </strong>Muestra por pantalla secciones del manual del usuario.</p>
+  <p><em>Formato:</em> man Nombre del comando.</p>
+  <p>Ej: man ls.</p>
+  <p><strong></strong> </p>
+  <p><strong>mesg</strong>: Habilita o deshabilita la comunicación entre usuarios por medio de <em>write</em>.</p>
+  <p><em>Formato :</em> mesg [n/y].</p>
+  <p> </p>
+  <p><strong>lpr</strong>: Imprime el contenido de un archivo.</p>
+  <p><em>Formato:</em> lpr [Opción] Archivo</p>
+  <p>Se consideran las principales opciones:</p>
+  <p>-P cola Indica la cola de impresión a utilizar.</p>
+  <p>-n&lt;número&gt;: Indica la cantidad de copias a imprimir, por defecto siempre es 1.</p>
+  <p>-R: Remueve el archivo después de realizada la impresión.</p>
+  <p><strong></strong> </p>
+  <p><strong>tree</strong>: Lista todos los directorios a partir del directorio actual o del directorio indicado.</p>
+  <p><em>Formato</em>: tree [Directorio].</p>
+  <p> </p>
+  <p><strong>tty</strong>: Muestra el número de la terminal donde está trabajando el usuario.</p>
+  <p><em>Formato</em>: tty</p>
+  <p> </p>
+  <p><strong>who</strong>: Visualiza los usuarios que están activos en el sistema, sin ningún tipo de argumento éste comando muestra los nombres de usuario, número de terminal y horario de conexión por cada usuario activo del sistema. Utilizando los argumentos who am i el comando muestra con que nombre de usuario está usted conectado.</p>
+  <p><em>Formato:</em> who [Opción]</p>
+  <p><br />
+    <strong>write</strong>: Envía mensajes a otros usuarios hasta que se digite &quot;Control D&quot;. La recepción de estos mensajes puede ser deshabilitada por el usuario utilizando el comando MESG.</p>
+  <p><em>Formato:</em> write Usuario Terminal</p>
+</blockquote>
